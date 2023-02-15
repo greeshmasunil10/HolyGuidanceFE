@@ -26,6 +26,7 @@ function App() {
       setError(err.message);
     }
     setIsLoading(false);
+    setQuestion(""); // clear the text in the textarea
   };
 
   return (
@@ -33,15 +34,22 @@ function App() {
       <form className="form" onSubmit={handleSubmit}>
         <label className="label">
           <div className="banner">HOLY GUIDANCE</div>
-          <p className="description">Get biblical guidance for your problems and worries.</p>
+          <p className="description">
+            Get biblical guidance for your problems and worries.
+          </p>
           <p className="greeting-qsn">{GREETING_QUESTION} </p>
           <br />
           <textarea
             className="input"
             type="text"
             value={question}
-            // autoCapitalize="sentences"
             onChange={(e) => setQuestion(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e);
+              }
+            }}
           />
         </label>
         <button className="button" type="submit">
@@ -52,7 +60,7 @@ function App() {
 
       {response && (
         <div className="message-box">
-          <p style={{fontWeight:"bold"}}>Bible Buddy says...</p>
+          <p style={{ fontWeight: "bold" }}>Bible Buddy says...</p>
           <p className="message-text">{response}</p>
         </div>
       )}
