@@ -45,7 +45,7 @@ function App() {
           />
         </label>
         <button className="button" type="submit">
-          {isLoading ? <div className="loader"></div> : "Ask Bible Buddy"}
+          {isLoading ? <div className="dot-typing"></div> : "Ask Bible Buddy"}
         </button>
       </form>
       {error && <p className="error">{error}</p>}
