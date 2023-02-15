@@ -18,18 +18,28 @@
 .label {
   font-size: 16px;
   margin-bottom: 10px;
+  color: rgb(10, 31, 31);
+  font-weight:bold;
+  padding-bottom: 5cqmax;
 }
 
 .input {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #cccccc;
+  border: 2px solid #000000;
   margin-bottom: 20px;
+  width: 80vw;;
+  height: 70px;
+  text-transform: none;
+}
+
+input::first-letter {
+  text-transform: capitalize;
 }
 
 .button {
-  background: #1f8efa;
+  background: #000000;
   color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;

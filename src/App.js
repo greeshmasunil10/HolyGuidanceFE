@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 
+let GREETING_QUESTION = "What's troubling your soul, my friend?"
+
 function App() {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
@@ -25,15 +27,16 @@ function App() {
     <div className="sample">
       <form className="form" onSubmit={handleSubmit}>
         <label className="label">
-          Enter your question:
+        <p>{GREETING_QUESTION} </p><br/>
           <input
             className="input"
             type="text"
             value={question}
+            // autoCapitalize="sentences"
             onChange={(e) => setQuestion(e.target.value)}
           />
         </label>
-        <button className="button" type="submit">Submit</button>
+        <button className="button" type="submit">Ask</button>
       </form>
       {error && <p className="error">{error}</p>}
 
