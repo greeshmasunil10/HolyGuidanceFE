@@ -10,8 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  background: #222222;
+  height: 70px;
+  width:auto;
+  background: #000000;
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
@@ -50,6 +51,15 @@
   padding-bottom: 5cqmax;
 }
 
+.greeting-qsn{
+  font-size: 30px;
+  color: #179ef7;
+}
+
+.description{
+  color:#000000;
+}
+
 .input {
   padding: 10px;
   font-size: 16px;
@@ -77,6 +87,7 @@ input::first-letter {
   border: none;
   font-size: 16px;
   cursor: pointer;
+  align-items: left;
 }
 
 .error {
@@ -94,4 +105,5 @@ input::first-letter {
 
 .message-text {
   font-size: 16px;
+  color:brown
 }
