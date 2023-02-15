@@ -6,6 +6,33 @@
   background: #f2f2f2;
 }
 
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: #222222;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.loader {
+  border: 6px solid #c3c3c3; /* Light grey */
+  border-top: 6px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 .form {
   display: flex;
   flex-direction: column;
