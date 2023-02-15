@@ -44,4 +44,4 @@ Contributions to the Holy Guidance app are welcome! To contribute, follow these 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/greeshmasunil10/HolyGuidanceFE/blob/main/LICENSE) file for details.
