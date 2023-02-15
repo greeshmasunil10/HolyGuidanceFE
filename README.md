@@ -1,2 +1,0 @@
-"# HolyGuidanceBE" 
-"# HolyGuidanceFE" 
