@@ -56,10 +56,14 @@
   border-radius: 5px;
   border: 2px solid #000000;
   margin-bottom: 20px;
-  width: 80vw;;
-  height: 70px;
+  width: 80vw;
+  height: 150px;
   text-transform: none;
+  overflow-y: scroll;
+  white-space: normal;
 }
+
+
 
 input::first-letter {
   text-transform: capitalize;

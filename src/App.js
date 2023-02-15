@@ -35,7 +35,7 @@ function App() {
           <div className="banner">Holy Guidance</div>
           <p>{GREETING_QUESTION} </p>
           <br />
-          <input
+          <textarea
             className="input"
             type="text"
             value={question}
