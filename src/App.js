@@ -11,22 +11,32 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!question) {
+      setError("Please enter a question.");
+      return;
+    }
+
     setError(null);
     setIsLoading(true);
+
     try {
       const res = await fetch(
         `https://holy-guidance-api.herokuapp.com/?question=${question}`
       );
+
       if (!res.ok) {
         throw new Error(`Error: ${res.status}`);
       }
+
       const data = await res.json();
       setResponse(data.response);
     } catch (err) {
       setError(err.message);
     }
+
     setIsLoading(false);
-    setQuestion(""); // clear the text in the textarea
+    setQuestion("");
   };
 
   return (
@@ -52,11 +62,12 @@ function App() {
             }}
           />
         </label>
+      {error && <p className="error">{error}</p>}
         <button className="button" type="submit">
           {isLoading ? <div className="dot-typing"></div> : "Ask Bible Buddy"}
         </button>
       </form>
-      {error && <p className="error">{error}</p>}
+
 
       {response && (
         <div className="message-box">
