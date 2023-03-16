@@ -51,7 +51,7 @@ function App() {
     document.getElementById("question").innerHTML = question;
     questionDiv.style.display = "block";
 
-    answerDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+    answerDiv.scrollIntoView({ behavior: "smooth", block: "end" });
 
   };
 
