@@ -2,24 +2,22 @@ import React, { useState } from "react";
 import "./App.css";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import gsIcon from "./favicon.ico";
 
 let GREETING_QUESTION = "What's troubling your soul, my friend?";
 
 function App() {
-
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-
     const questionDiv = document.getElementById("ask-bubble");
     const answerDiv = document.getElementById("answer");
 
-    questionDiv.style.display= "none";
-    answerDiv.style.display= "none";
-
+    questionDiv.style.display = "none";
+    answerDiv.style.display = "none";
 
     e.preventDefault();
     if (!question) {
@@ -50,16 +48,34 @@ function App() {
 
     document.getElementById("question").innerHTML = question;
     questionDiv.style.display = "block";
+    answerDiv.scrollTop = answerDiv.scrollHeight;
 
     answerDiv.scrollIntoView({ behavior: "smooth", block: "end" });
-
   };
 
   return (
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
         <label className="label">
-          <div className="banner">HOLY GUIDANCE</div>
+          <div className="banner">
+            {" "}
+            <img
+              src={gsIcon}
+              alt="GS Icon"
+              style={{
+                position: "relative",
+                top: "0",
+                left: "0",
+                width: 50,
+                height: 50,
+                alignSelf:"left",
+                // right:"30%"
+                paddingLeft: 10,
+                paddingRight: 10
+              }}
+            /> <div sty>HOLY GUIDANCE</div>
+            
+          </div>
           <p className="description">
             Get biblical guidance for your problems and worries.
           </p>
@@ -87,14 +103,23 @@ function App() {
       </form>
 
       <div className="send-message" id="ask-bubble">
-        <p style={{color:"var(--bubble-ask-color)", fontFamily:"EB Garamond"}}>You asked:</p>
+        <p
+          style={{
+            color: "var(--bubble-ask-color)",
+            fontFamily: "EB Garamond",
+          }}
+        >
+          You asked:
+        </p>
         <p id="question" className="send-message-text"></p>
       </div>
 
       <div className="response" id="answer">
         {response && (
           <div className="message-box">
-            <p style={{color:"var(--bubble-dsc-color)"}}>Bible Buddy says...</p>
+            <p style={{ color: "var(--bubble-dsc-color)" }}>
+              Bible Buddy says...
+            </p>
             <p className="message-text">{response}</p>
           </div>
         )}
@@ -105,7 +130,7 @@ function App() {
           href="https://github.com/greeshmasunil10/HolyGuidanceBE"
           target="_blank"
           rel="noreferrer"
-          style={{ display: "inline-block", padding: "10px" , color:"blue"}}
+          style={{ display: "inline-block", padding: "10px", color: "blue" }}
         >
           {" "}
           <FontAwesomeIcon icon={faStar} /> Designed and Built by Greeshma Sunil{" "}

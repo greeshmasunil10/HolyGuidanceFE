@@ -41,7 +41,7 @@
 
 .banner {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 70px;
   width:auto;
@@ -102,7 +102,7 @@
   border-radius: 5px;
   border: 2px solid var(--txt-box-border-color);
   margin-bottom: 20px;
-  width: 85%;
+  width: 75%;
   height: 150px;
   text-transform: none;
   overflow-y: scroll;
