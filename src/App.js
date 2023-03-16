@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import "./App.css";
+import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 let GREETING_QUESTION = "What's troubling your soul, my friend?";
 
 function App() {
+
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
 
+    const questionDiv = document.getElementById("ask-bubble");
+    const answerDiv = document.getElementById("answer");
+
+    questionDiv.style.display= "none";
+    answerDiv.style.display= "none";
+
+
+    e.preventDefault();
     if (!question) {
       setError("Please enter a question.");
       return;
@@ -24,23 +34,29 @@ function App() {
       const res = await fetch(
         `https://holy-guidance-api.herokuapp.com/?question=${question}`
       );
-
       if (!res.ok) {
         throw new Error(`Error: ${res.status}`);
       }
-
       const data = await res.json();
       setResponse(data.response);
     } catch (err) {
       setError(err.message);
     }
 
+    answerDiv.style.display = "block";
+
     setIsLoading(false);
     setQuestion("");
+
+    document.getElementById("question").innerHTML = question;
+    questionDiv.style.display = "block";
+
+    answerDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+
   };
 
   return (
-    <div className="sample">
+    <div className="container">
       <form className="form" onSubmit={handleSubmit}>
         <label className="label">
           <div className="banner">HOLY GUIDANCE</div>
@@ -52,6 +68,8 @@ function App() {
           <textarea
             className="input"
             type="text"
+            name="question"
+            placeholder="Enter your question"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             onKeyDown={(e) => {
@@ -62,19 +80,37 @@ function App() {
             }}
           />
         </label>
-      {error && <p className="error">{error}</p>}
+        {error && <p className="error">{error}</p>}
         <button className="button" type="submit">
           {isLoading ? <div className="dot-typing"></div> : "Ask Bible Buddy"}
         </button>
       </form>
 
+      <div className="send-message" id="ask-bubble">
+        <p style={{color:"var(--bubble-ask-color)", fontFamily:"EB Garamond"}}>You asked:</p>
+        <p id="question" className="send-message-text"></p>
+      </div>
 
-      {response && (
-        <div className="message-box">
-          <p style={{ fontWeight: "bold" }}>Bible Buddy says...</p>
-          <p className="message-text">{response}</p>
-        </div>
-      )}
+      <div className="response" id="answer">
+        {response && (
+          <div className="message-box">
+            <p style={{color:"var(--bubble-dsc-color)"}}>Bible Buddy says...</p>
+            <p className="message-text">{response}</p>
+          </div>
+        )}
+      </div>
+
+      <footer>
+        <a
+          href="https://github.com/greeshmasunil10/HolyGuidanceBE"
+          target="_blank"
+          rel="noreferrer"
+          style={{ display: "inline-block", padding: "10px" , color:"blue"}}
+        >
+          {" "}
+          <FontAwesomeIcon icon={faStar} /> Designed and Built by Greeshma Sunil{" "}
+        </a>
+      </footer>
     </div>
   );
 }
