@@ -16,6 +16,11 @@
   --bubble-dsc-color:#f7abab;
   --bubble-ask-color:#650a0a;
   --button-dot-color:#f7abab;
+  --footer-color:#d6d3d3;
+}
+
+body{
+  background: var(--bg-color);
 }
 
 .container {
@@ -31,10 +36,10 @@
   /* flex-direction: column; */
   /* align-items: center; */
   /* height: 100vh; */
-  background: var(--bg-color);
   padding-left: 150px;
   padding-right: 150px;
   padding-top: 10px;
+  height: 100vh;
 
   /* width: fit-content; */
 }
@@ -126,14 +131,15 @@ input::first-letter {
 }
 
 footer {
-  background-color: var(--footer-color);
+  /* background-color: var(--footer-color); */
   max-height: fit-content;
   text-align: center;
   font-size: small;
   font-family: "Courier New", Courier, monospace;
   /* color: white; */
   padding: 20px;
-  color:#650a0a
+  color:#650a0a;
+  /* width:100vw; */
 }
 
 .error {
